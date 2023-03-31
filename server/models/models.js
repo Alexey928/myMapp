@@ -17,16 +17,14 @@ const Organization =  sequelize.define(
         id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
         name:{type:DataTypes.STRING,allowNull:false},
         numberOfEmployees:{type:DataTypes.INTEGER},
-        location:{type:DataTypes.STRING,unique:true,}
+        location:{type:DataTypes.STRING,unique:true,},
     }
 )
 
-const Season = sequelize.define("seasons",
-    {
+const Season = sequelize.define("seasons", {
         id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
         name:{type:DataTypes.STRING,allowNull:false},
-    }
-);
+    });
 
 const SeasonField = sequelize.define("fild",{
     id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
@@ -35,14 +33,19 @@ const SeasonField = sequelize.define("fild",{
     color:{type:DataTypes.STRING},
     AmounOfFertilizers:{type:DataTypes.INTEGER},
 });
+const Images = sequelize.define("imagess", {
+    id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
+    description:{type:DataTypes.STRING},
+    imgSorse:{type:DataTypes.STRING},
+
+
+})
 
 
 
 const  SeasonFertilizers = sequelize.define("Fertilizers",{
     id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
     value:{type:DataTypes.STRING,defaultValue:0},
-    Fertilizers:{}
-
 })
 
 const  Seasonchemistry= sequelize.define("chemistry",{
@@ -61,6 +64,19 @@ const Fertilizers = sequelize.define("chemistry" ,{
     name:{type:DataTypes.STRING,allowNull:false},
     manufacturerName:{type:DataTypes.STRING},
 });
+
+
+
+User.hasOne(Organization);
+Organization.belongsTo(User);
+
+
+
+
+
+
+
+
 
 
 
