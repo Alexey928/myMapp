@@ -28,12 +28,45 @@ const Season = sequelize.define("seasons",
     }
 );
 
-const Fild = sequelize.define("fild",{
+const SeasonField = sequelize.define("fild",{
     id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
     name:{type:DataTypes.STRING,allowNull:false},
     sqear:{type:DataTypes.INTEGER,allowNull:false},
-    color:{type:DataTypes.STRING}
+    color:{type:DataTypes.STRING},
+    AmounOfFertilizers:{type:DataTypes.INTEGER},
+});
+
+
+
+const  SeasonFertilizers = sequelize.define("Fertilizers",{
+    id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
+    value:{type:DataTypes.STRING,defaultValue:0},
+    Fertilizers:{}
+
 })
+
+const  Seasonchemistry= sequelize.define("chemistry",{
+    id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
+    value:{type:DataTypes.STRING},
+})
+
+const Chemistry = sequelize.define("chemistry" ,{
+    id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
+    name:{type:DataTypes.STRING,allowNull:false},
+    manufacturerName:{type:DataTypes.STRING},
+});
+
+const Fertilizers = sequelize.define("chemistry" ,{
+    id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
+    name:{type:DataTypes.STRING,allowNull:false},
+    manufacturerName:{type:DataTypes.STRING},
+});
+
+
+
+
+
+
 
 
 
