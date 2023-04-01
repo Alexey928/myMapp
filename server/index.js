@@ -1,11 +1,28 @@
 const express = require("express");
 const app = express();
 const sequelize = require("./db");
- const fileUpload = require('express-fileupload')
+const fileUpload = require('express-fileupload')
 const cors = require('cors');
+const path = require("path");
+const PORT = process.env.PORT || 5000;
 
 
- app.use(express.json());
+app.use(express.json());
+
+const start = async ()=>{
+    try {
+        // setTimeout(()=>{
+        //     console.log("timeaut")
+        // },1000)
+        await sequelize.authenticate();
+        await sequelize.sync();
+        app.listen(PORT,()=>console.log(`port ${PORT} started`));//
+        console.log("CORS-enabled web server listening on port 80");
+    }catch(e){
+        console.log(e);
+    }
+}
+
 
 
 
