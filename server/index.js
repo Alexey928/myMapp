@@ -4,16 +4,17 @@ const sequelize = require("./db");
 const fileUpload = require('express-fileupload')
 const cors = require('cors');
 const path = require("path");
+const errorHandler = require("./Midelware/ErrorHendleMidelware")
 const PORT = process.env.PORT || 5000;
+
 
 
 app.use(express.json());
 
+app.use(errorHandler);
+
 const start = async ()=>{
     try {
-        // setTimeout(()=>{
-        //     console.log("timeaut")
-        // },1000)
         await sequelize.authenticate();
         await sequelize.sync();
         app.listen(PORT,()=>console.log(`port ${PORT} started`));//
