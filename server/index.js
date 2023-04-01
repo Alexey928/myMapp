@@ -1,11 +1,12 @@
 const express = require("express");
-
-
-
-
 const app = express();
+const sequelize = require("./db");
+ const fileUpload = require('express-fileupload')
+const cors = require('cors');
 
-app.use(express.json());
+
+ app.use(express.json());
+
 
 
 app.listen(4001,()=>{
